@@ -78,13 +78,19 @@ class App extends React.Component {
     }
   };
 
+  hideMessage = () => {
+    this.setState({
+      error: "",
+    });
+  }
+
   render() {
     return (
       <div className="container">
         <div className="wrapper">
           <div className="weather-info">
             <Inform />
-            <Form checkWeather={this.getWether} />
+            <Form checkWeather={this.getWether} hideError={this.hideMessage}/>
             <Weather
               city={this.state.city}
               country={this.state.country}
